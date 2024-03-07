@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Notas</title>
+    <style>
+       h1{
+           text-align: center;
+       }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+
+        resultado{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+   < <h1>Calculadora de Notas</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Matéria</th>
+                <th>1º Bimestre</th>
+                <th>2º Bimestre</th>
+                <th>3º Bimestre</th>
+                <th>4º Bimestre</th>
+            </tr>
+        </thead>
+        <tbody>
+           
+            <tr>
+                <td>Matemática</td>
+                <td><input type="text" id="mat1"></td>
+                <td><input type="text" id="mat2"></td>
+                <td><input type="text" id="mat3"></td>
+                <td><input type="text" id="mat4"></td>
+            </tr>
+
+            <tr>
+                <td>Português</td>
+                <td><input type="text" id="mat1"></td>
+                <td><input type="text" id="mat2"></td>
+                <td><input type="text" id="mat3"></td>
+                <td><input type="text" id="mat4"></td>
+            </tr>
+
+            <tr>
+                <td>Física</td>
+                <td><input type="text" id="fis1"></td>
+                <td><input type="text" id="fis2"></td>
+                <td><input type="text" id="fis3"></td>
+                <td><input type="text" id="fis4"></td>
+            </tr>
+
+                <tr>
+                <td>Química</td>
+                <td><input type="text" id="qui1"></td>
+                <td><input type="text" id="qui2"></td>
+                <td><input type="text" id="qui3"></td>
+                <td><input type="text" id="qui4"></td>
+            </tr>
+            
+                <tr>
+                <td>História</td>
+                <td><input type="text" id="his1"></td>
+                <td><input type="text" id="his2"></td>
+                <td><input type="text" id="his3"></td>
+                <td><input type="text" id="his4"></td>
+            </tr>
+
+            <tr>
+                <td>Inglês</td>
+                <td><input type="text" id="ing1"></td>
+                <td><input type="text" id="ing2"></td>
+                <td><input type="text" id="ing3"></td>
+                <td><input type="text" id="ing4"></td>
+            </tr>
+
+            <tr>
+                <td>Geografia</td>
+                <td><input type="text" id="geo1"></td>
+                <td><input type="text" id="geo2"></td>
+                <td><input type="text" id="geo3"></td>
+                <td><input type="text" id="geo4"></td>
+            </tr>
+
+            <tr>
+                <td>Educação Física</td>
+                <td><input type="text" id="edf1"></td>
+                <td><input type="text" id="edf2"></td>
+                <td><input type="text" id="edf3"></td>
+                <td><input type="text" id="edf4"></td>
+            </tr>
+
+            <tr>
+                <td>Biologia</td>
+                <td><input type="text" id="bio1"></td>
+                <td><input type="text" id="bio2"></td>
+                <td><input type="text" id="bio3"></td>
+                <td><input type="text" id="bio4"></td>
+            </tr>
+
+            <tr>
+                <td>Banco de Dados II</td>
+                <td><input type="text" id="bdd1"></td>
+                <td><input type="text" id="bdd2"></td>
+                <td><input type="text" id="bdd3"></td>
+                <td><input type="text" id="bdd4"></td>
+            </tr>
+
+            <tr>
+                <td>Ética</td>
+                <td><input type="text" id="eti1"></td>
+                <td><input type="text" id="eti2"></td>
+                <td><input type="text" id="eti3"></td>
+                <td><input type="text" id="eti4"></td>
+            </tr>
+
+            <tr>
+                <td>Desenvolvimento de Sistemas</td>
+                <td><input type="text" id="dds1"></td>
+                <td><input type="text" id="dds2"></td>
+                <td><input type="text" id="dds3"></td>
+                <td><input type="text" id="dds4"></td>
+            </tr>
+
+            <tr>
+                <td>Mobile I</td>
+                <td><input type="text" id="mbl1"></td>
+                <td><input type="text" id="mbl2"></td>
+                <td><input type="text" id="mbl3"></td>
+                <td><input type="text" id="mbl4"></td>
+            </tr>
+
+            <tr>
+                <td>Programação WEB II</td>
+                <td><input type="text" id="pwb1"></td>
+                <td><input type="text" id="pwb2"></td>
+                <td><input type="text" id="pwb3"></td>
+                <td><input type="text" id="pwb4"></td>
+            </tr>
+
+
+           
+        </tbody>
+    </table>
+    <br> <br>
+    <button onclick="calcularNotas()">Calcular</button>
+    <p id="resultado"></p>
+ 
+    <script>
+        function calcularNotas() {
+          
+            const notas = document.querySelectorAll("input[type='text']");
+            let totalI = 0;
+            let totalR = 0;
+            let totalB = 0;
+            let totalMB = 0;
+ 
+            notas.forEach(nota => {
+                const valor = nota.value.toUpperCase();
+                switch (valor) {
+                    case "I":
+                        totalI++;
+                        break;
+                    case "R":
+                        totalR++;
+                        break;
+                    case "B":
+                        totalB++;
+                        break;
+                    case "MB":
+                        totalMB++;
+                        break;
+                    default:
+                        break;
+                }
+            });
+ 
+           
+            const resultado = document.getElementById("resultado");
+            resultado.innerHTML = `Total de notas I: ${totalI}<br>
+                                  Total de notas R: ${totalR}<br>
+                                  Total de notas B: ${totalB}<br>
+                                  Total de notas MB: ${totalMB}`;
+        }
+    </script>
+</body>
+</html>
